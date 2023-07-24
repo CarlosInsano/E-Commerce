@@ -1,16 +1,23 @@
-*{
-    font: normal arial;
-}
 body{
     background-color: rgba(255, 192, 203, 0.61);
+    font: normal 19pt arial;
+    display: grid;
+    grid-template-areas: 
+    "head head head"
+    "side content content"
+    "foot foot foot"
+    ;
 
 }
-
+header{
+    grid-area: head;
+}
 .cabecalho{
     display: flex;
     flex-direction: row;
     margin: auto;
     padding: 0  ;
+    font: normal 13pt arial;
 }
 .burguer{
     align-items: start;
@@ -18,7 +25,6 @@ body{
     margin-left: 0;
 }
 .lupa{
-    
     margin: auto;
     margin-right: 0;
 }
@@ -35,31 +41,73 @@ body{
     margin: 0 auto;
     padding: 0 2%;
     display: flex;
+    font: normal 12pt arial;
+    flex-wrap: wrap;
 }
 #carrinho{
     max-width: 900px;
     margin: 0 auto;
     padding: 0 2%;
-
 }
 .produto-single{
-    width: 100%;
-    height: 250px;
-    margin-right: 10px;
+    width: 32%;
+    height: 315px;
+    margin-right: 5px;
     border: 1px solid rgb(150, 150, 150);
     align-items: center;
-    text-align:center;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 10px;
+}
+.produto-single img{
+    width: 100%;
+    height: 60%;
+    background-color: rgba(255, 255, 255, 0.315);
     border-radius: 10px;
 }
-img{
-    width: 100%;
-    height: 50%;
+.produto-single p{
+    padding: 0px;
+    font: normal 14pt arial;
+}
+.produto-single a{
+    color: white;
+    text-decoration: none;
+    background-color: rgba(248, 0, 41, 0.438);
+    padding:auto;
+    margin: auto;
+    display: block;
+    border-radius: 9px;
+    font:normal 13pt arial;
+}
+:hover.produto-single a{
+    background-color: rgba(0, 248, 41, 0.356);
+    padding: 1px;
 }
 h2{
     background-color: pink;
     text-align: center;
     padding: 10px 0;
-    
+    font: normal 25pt arial;
+}
+.info-single-checkout{
+    border-bottom: 2px dotted;
+    padding: 0px;
+}
+@media(max-width: 760px){
+    body{
+        background-color: rgba(255, 192, 203, 0.61);
+        font: normal 10pt arial;
+    }
+    .produto-single{
+        width: 100%;
+        height: 100%;
+        margin-right: 5px;
+        border: 1px solid rgb(150, 150, 150);
+        align-items: center;
+        border-radius: 10px;
+        text-align: center;
+        margin-top: 10px;
+    }    
 }
 
 
