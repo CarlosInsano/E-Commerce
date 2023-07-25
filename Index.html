@@ -5,13 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anny Beatriz laços e Acessorios</title>
-    <link href="script.js" >
+    <link href="script.js">
 </head>
 <body>
     <header>
         <div class="cabecalho">
         <!--Menu em hamburguer que abre da lateral-->
-        <button class="burguer" type="menu">botao menu</button><p>Início</p>
+        <div class="container">
+            <button id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
         <!--Lupa de pesquisa-->
         <button class="lupa">Lupa</button>
         </div>
@@ -20,16 +26,13 @@
             <li class="menu-item">Início</li>
             <li class="menu-item">Produtos</li>
             <li class="menu-item">Carrinho</li>
+            <a href="teste/Teste.html" class="menu-item">Teste</a> 
         </nav>
     </header>
     <section>
         <h2>Vitrine:</h2>
         <div id="produtos">
         </div>
-        <br>
-        <hr>
-        <br>
-    
     </section>
     <sidebar>
         <h2>Carrinho:</h2>
@@ -37,7 +40,7 @@
         </div>
     </sidebar>
     <footer>
-
+        <p>Rodapé</p>
     </footer>
     <script src="Index.js"></script>
 </body>

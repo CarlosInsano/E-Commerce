@@ -53,12 +53,13 @@ const items = [
             if(val.quantidade > 0) {
          containerCarrinho.innerHTML+=`            
             <div class="info-single-checkout" >
+            <img style="float:left;margin:10px;border: 1px solid;" src="`+val.img+`"/>
             <p style="float:left;">Produto: `+val.nome+`</p>
             <p style="float:right;">Qtd `+val.quantidade+`</p>
             <div style="clear:both"></div>
             <button style="float:right;" onclick="removerItemDoCarrinho(${val.id})">Remover</button>
-            <p>`+val.priceTotal+`</p>
-            
+            <p>Valor: R$`+val.priceTotal+`</p>
+
             `;
         }
         })
