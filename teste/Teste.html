@@ -1,41 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-    <title>Menu de Hambúrguer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>teste</title>
     <link rel="stylesheet" href="teste.css">
 </head>
 <body>
-    <div class="container">
-        <button id="menuToggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <div id="content">
-            <!-- Seu conteúdo pode ser colocado aqui -->
-            <h2>Conteúdo Adicional</h2>
-            <p>Este é um conteúdo adicional que será exibido ao abrir o menu de hambúrguer.</p>
+    <section>
+        <h2>Vitrine:</h2>
+        <div id="produtos">
         </div>
-    </div>
-    <nav id="menu">
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Info</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Show me more</a></li>
-        </ul>
-    </nav>
+    </section>
+    <sidebar>
+        <h2>Carrinho:</h2>
+        <div id="carrinho">
+        </div>
+    </sidebar>
 
-    <script>
-        const menuToggle = document.getElementById('menuToggle');
-        const menu = document.getElementById('menu');
-        const content = document.getElementById('content');
-
-        menuToggle.addEventListener('click',function() {
-            menu.classList.toggle('show');
-            content.classList.toggle('show');
-        })
-    </script>
+    <script src="teste.js"></script>
 </body>
 </html>

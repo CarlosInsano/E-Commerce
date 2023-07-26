@@ -63,7 +63,6 @@ const items = [
             `;
         }
         })
-        containerCarrinho.innerHTML = carrinhoHTML;
     }
     
     var links = document.getElementsByTagName('a');
