@@ -1,6 +1,6 @@
 Id;nome;img;price;quantidade
 0;Joao;image.png;10;0
-0;Joao2;image.png;20;0
-1;Joao3;image.png;21;0
-0;Carlos;image.png;22;0
-1;testador;image.png;50;1
+1;Joao2;image.png;20;0
+2;Joao3;image.png;21;0
+3;Carlos;image.png;22;0
+4;testador;image.png;50;0

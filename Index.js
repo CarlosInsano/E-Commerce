@@ -45,7 +45,8 @@ const items = [
         })
     }
     inicializarLoja()
-
+    
+    console.log(items)
     atualizarCarrinho =()=>{
         var containerCarrinho = document.getElementById('carrinho');
         containerCarrinho.innerHTML = "";

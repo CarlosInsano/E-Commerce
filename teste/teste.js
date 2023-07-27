@@ -1,4 +1,14 @@
-
+//funçao para converte string Para Numero
+function converterStringParaNumero(valor) {
+  if (!isNaN(valor)) {
+    if (valor.includes(".")) {
+      return parseFloat(valor);
+    } else {
+      return parseInt(valor, 10);
+    }
+  }
+  return valor;
+}
 // Função para converter o CSV em array de objetos
 function csvToArray(csv) {
     const lines = csv.split('\n');
@@ -12,14 +22,14 @@ function csvToArray(csv) {
       }
   
       const obj = {};
-      for (let j = 0; j < headers.length; j++) {
-        obj[headers[j]] = currentLine[j];
-      }
-      result.push(obj);
+    for (let j = 0; j < headers.length; j++) {
+      obj[headers[j]] = converterStringParaNumero(currentLine[j]); // Convertendo a string para número, se necessário
     }
-    return result;
+    result.push(obj);
   }
-  
+  return result;
+}
+// colocando os valores do Csv na variavel urlDoArquivoCSV
   const urlDoArquivoCSV = 'BD_produtos.CSV'; //caminho correto do arquivo CSV
   
   fetch(urlDoArquivoCSV)
@@ -27,15 +37,13 @@ function csvToArray(csv) {
     .then((data) => {
       // Chamada da função para converter o CSV em array de objetos
       const produtos = csvToArray(data);
-  
+
       // Exemplo de uso dos dados da constante "produtos"
       console.log(produtos);
     })
     .catch((error) => {
       console.error('Erro ao carregar dados do arquivo CSV:', error);
     });
-
-
 
 let items = []
 
@@ -55,26 +63,28 @@ fetch(urlDoArquivoCSV)
     console.error('Erro ao carregar dados do arquivo CSV:', error);
   });
 
-    inicializarLoja = () => {
-        var containerProdutos = document.getElementById('produtos');
-        items.map((val)=>{
-         
-         containerProdutos.innerHTML+=`            
-            <div class="produto-single">
-                <img src="`+val.img+`"/>
-                <p> `+val.nome+`</p>
-                <p> R$`+val.price+`</p>
-                <a key="${val.Id}" href="#">Adicionar ao Carrinho!</a>
-            </div>    
-            
-            `;
-        })
-    }
+  function inicializarLoja() {
+    var containerProdutos = document.getElementById('produtos');
+    containerProdutos.innerHTML = ""; // Limpa o conteúdo antes de renderizar novamente
+  
+    items.forEach((val) => {
+      containerProdutos.innerHTML += `
+        <div class="produto-single">
+          <img src="${val.img}" />
+          <p>${val.nome}</p>
+          <p>R$ ${val.price}</p>
+          <button onclick="adicionarAoCarrinho(${val.Id})">Adicionar ao Carrinho!</button>
+        </div>
+      `;
+    });
+  }
+  
     inicializarLoja()
 
     atualizarCarrinho =()=>{
         var containerCarrinho = document.getElementById('carrinho');
         containerCarrinho.innerHTML = "";
+        
         items.forEach((val) =>{
             if(val.quantidade > 0) {
          containerCarrinho.innerHTML+=`            
@@ -89,23 +99,23 @@ fetch(urlDoArquivoCSV)
             `;
         }
         })
-        containerCarrinho.innerHTML = carrinhoHTML;
+        
     }
-    
     
 
     var links = document.getElementsByTagName('a');
 
-    for(var i = 0; i < links.length; i++){
-        links[i].addEventListener("click",function(){            
-            let key = this.getAttribute('key');
-            items[key].quantidade++;
-            items[key].priceTotal = items[key].quantidade * items[key].price; // Calcula o preço total do item
-            atualizarCarrinho(); 
-            
-            
-        })
+    function adicionarAoCarrinho(itemId) {
+      for (let i = 0; i < items.length; i++) {
+        if (items[i].Id === itemId) {
+          items[i].quantidade++; // Incrementa a quantidade do produto no carrinho
+          items[i].priceTotal = items[i].quantidade * items[i].price; // Calcula o preço total do item
+          break;
+        }
+      }
+      atualizarCarrinho(); // Atualiza o carrinho após adicionar o produto
     }
+    
     function removerItemDoCarrinho(itemId) {
         for (let i = 0; i < items.length; i++) {
           if (items[i].id === itemId) {
